@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.Callable;
 
 import butterknife.BindView;
@@ -18,7 +17,6 @@ import butterknife.ButterKnife;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class BooksActivity extends AppCompatActivity {
@@ -37,7 +35,7 @@ public class BooksActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        restClient = new RestClient(this);
+        restClient = new RestClient();
         configureLayout();
         createObservable();
     }
@@ -83,7 +81,7 @@ public class BooksActivity extends AppCompatActivity {
 //                        }
 //                );
                 .subscribe(
-                        strings -> displayBooks(strings),
+                        books -> displayBooks(books),
                         error -> displayError()
                 );
     }

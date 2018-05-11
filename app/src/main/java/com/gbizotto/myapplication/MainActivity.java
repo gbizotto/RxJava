@@ -6,24 +6,35 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
     }
 
+    @OnClick({R.id.first, R.id.second, R.id.third})
     public void onFirstClick(View view) {
-        startActivity(new Intent(this, RxJavaSimpleActivity.class));
+        Class nextActivity = null;
+        switch (view.getId()) {
+            case R.id.first:
+                nextActivity = RxJavaSimpleActivity.class;
+                break;
+            case R.id.second:
+                nextActivity = ColorsActivity.class;
+                break;
+            case R.id.third:
+                nextActivity = BooksActivity.class;
+                break;
+        }
 
-    }
-
-    public void onSecondClick(View view) {
-        startActivity(new Intent(this, ColorsActivity.class));
-    }
-
-    public void onThirdClick(View view) {
-        startActivity(new Intent(this, BooksActivity.class));
+        if (nextActivity != null) {
+            startActivity(new Intent(this, nextActivity));
+        }
     }
 }

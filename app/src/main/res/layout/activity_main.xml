@@ -8,20 +8,17 @@
         android:id="@+id/first"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onFirstClick"
         android:text="First" />
 
     <Button
         android:id="@+id/second"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onSecondClick"
         android:text="Second" />
 
     <Button
         android:id="@+id/third"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onThirdClick"
         android:text="Third" />
 </LinearLayout>

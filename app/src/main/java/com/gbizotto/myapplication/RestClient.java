@@ -1,17 +1,11 @@
 package com.gbizotto.myapplication;
 
-import android.content.Context;
 import android.os.SystemClock;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RestClient {
-    private Context mContext;
-
-    public RestClient(Context context) {
-        mContext = context;
-    }
 
     public List<String> getFavoriteBooks() {
         SystemClock.sleep(8000);// "Simulate" the delay of network.
