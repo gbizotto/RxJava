@@ -24,14 +24,11 @@ public class SimpleStringAdapter extends RecyclerView.Adapter<SimpleStringAdapte
         mContext = context;
     }
 
-    public void setStrings(List<String> newStrings) {
+    public void setContent(List<String> newStrings, Boolean isBook) {
         mStrings.clear();
+        this.isBook = isBook;
         mStrings.addAll(newStrings);
         notifyDataSetChanged();
-    }
-
-    public void setIsBook(Boolean isBook) {
-        this.isBook = isBook;
     }
 
     @Override

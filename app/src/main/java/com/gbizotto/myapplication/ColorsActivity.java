@@ -21,7 +21,6 @@ public class ColorsActivity extends AppCompatActivity {
     private SimpleStringAdapter simpleStringAdapter;
     private Disposable disposable;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +33,7 @@ public class ColorsActivity extends AppCompatActivity {
 
     private void createObservable() {
         Observable<List<String>> listObservable = Observable.just(getColorList());
-        disposable = listObservable.subscribe(colors -> simpleStringAdapter.setStrings(colors));
+        disposable = listObservable.subscribe(colors -> simpleStringAdapter.setContent(colors, false));
     }
 
     private void configureLayout() {

@@ -18,9 +18,9 @@ public class RestClient {
         return createBooks();
     }
 
-    public List<String> getFavoriteBooksWithException() {
-        SystemClock.sleep(8000);// "Simulate" the delay of network.
-        throw new RuntimeException("Failed to load");
+    public List<String> getFavoriteBooksWithException() throws Exception {
+        SystemClock.sleep(2000);// "Simulate" the delay of network.
+        throw new Exception("Failed to load");
     }
 
     private List<String> createBooks() {
